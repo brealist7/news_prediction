@@ -20,9 +20,10 @@
 
     <form action="/predict" method="post">
         <label for="user_input_text">Введіть текст статті:</label>
-        <textarea id="user_input_text" name="user_input_text" rows="4" style="width: 80%;" required></textarea>
+        <textarea id="user_input_text" name="user_input_text" rows="4" style="width: 80%;" required>{{ request.form['user_input_text'] }}</textarea>
         <button type="submit">Передбачити</button>
     </form>
+    
 
     {% block predict_result %}
         <!-- Блок для виведення результатів передбачення -->
