@@ -1,0 +1,16 @@
+requests
+beautifulsoup4
+fake_useragent
+html2text
+pymorphy2
+razdel
+pymystem3
+xgboost
+transformers
+torch
+tqdm
+flask
+pandas
+scikit-learn 
+scipy 
+matplotlib

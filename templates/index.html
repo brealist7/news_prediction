@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оцініть імовірну популярність статті</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Оцініть очікувану популярність статті</h1>
+
+    {% block train_result %}
+        <!-- Блок для виведення результатів тренування -->
+        {% if train_result %}
+            <div class="result-text">
+                <p>Модель навчена. MSE: {{ train_result['mse'] }}, R2: {{ train_result['r2'] }}</p>
+            </div>
+        {% endif %}
+    {% endblock %}
+
+    <form action="/predict" method="post">
+        <label for="user_input_text">Введіть текст статті:</label>
+        <textarea id="user_input_text" name="user_input_text" rows="4" style="width: 80%;" required></textarea>
+        <button type="submit">Передбачити</button>
+    </form>
+
+    {% block predict_result %}
+        <!-- Блок для виведення результатів передбачення -->
+        {% if predict_result is not none %}
+            <div class="result-text">
+                <p>Прогнозований popularity_score для введеного тексту: {{ predict_result }}</p>
+            </div>
+        {% endif %}
+    {% endblock %}
+
+<form action="/show_top_words" method="post">
+    <button type="submit" id="toggle-words-button">Показати найпопулярніші слова</button>
+</form>
+
+{% if top_words %}
+<div class="result-text">
+    <p>Найпопулярніші слова:</p>
+    <ul>
+        {% for word in top_words %}
+        <p>{{ word }}</p>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+</body>
+</html>

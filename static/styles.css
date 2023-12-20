@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Змінюємо напрямок головного контейнера на вертикальний */
+    align-items: center; /* Центруємо по горизонталі */
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0; /* Зменшено margin на auto та додано margin зверху і знизу для текстового поля */
+    box-sizing: border-box;
+    resize: vertical; /* Дозволяє вертикальне змінення розміру */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px; /* Збільшено margin зверху для кнопки */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#train-form,
+#predict-form {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+#train-message,
+#predict-message {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.result-text {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
